@@ -1,6 +1,6 @@
 # Hands-on-Exercises-Sub-queries-and-Nested-Selects-in-PgAdmin-
 
-This is a hands-on exercises to demonstrate skills writing Sub-queries and Nested Selects in PgAdmin 4
+This is a hands-on exercise to demonstrate skills in writing Sub-queries and Nested Selects in PgAdmin 4
 
 # Software Used in this Lab
 
