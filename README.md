@@ -28,12 +28,12 @@ The objectives of this project were to:
 
 - How does a typical Nested SELECT statement syntax look?
 
-SELECT column_name [, column_name ]
-FROM table1 [, table2 ]
-WHERE column_name OPERATOR
-   (SELECT column_name [, column_name ]
-   FROM table1 [, table2 ]
-   WHERE condition);
+	SELECT column_name [, column_name ]
+	FROM table1 [, table2 ]
+	WHERE column_name OPERATOR
+  		 (SELECT column_name [, column_name ]
+  		 FROM table1 [, table2 ]
+  		 WHERE condition);
 
 # Task A: Creating tables using SQL scripts
 
@@ -95,46 +95,46 @@ To explore each table in the database, I right-clicked on each table and selecte
 
 1. Execute a failing query (i.e. one which gives an error) to retrieve all employees records whose salary is lower than the average salary.
 
-   In solving this problem, I issued the following SQL statement, however, failed:
+In solving this problem, I issued the following SQL statement, however, failed:
 
-   SELECT * FROM employees 
-   WHERE salary < AVG(salary);
+   	SELECT * FROM employees 
+   	WHERE salary < AVG(salary);
 
-   ![image](https://github.com/user-attachments/assets/d5307836-80e5-4260-a8f6-36f4bf464c8a)
+![image](https://github.com/user-attachments/assets/d5307836-80e5-4260-a8f6-36f4bf464c8a)
 
 2. Execute a working query using a sub-select to retrieve all employees records whose salary is lower than the average salary.
 
-   The following SQL statement solved the problem:
+The following SQL statement solved the problem:
 
-   SELECT * FROM employees 
-   WHERE salary < (SELECT AVG(salary)
+   	 SELECT * FROM employees 
+  	 WHERE salary < (SELECT AVG(salary)
 				      FROM employees);
 
-   ![image](https://github.com/user-attachments/assets/6082e796-119f-448f-abb8-54ecb82abcdb)
+![image](https://github.com/user-attachments/assets/6082e796-119f-448f-abb8-54ecb82abcdb)
 
 3. Execute a failing query (i.e. one which gives an error) to retrieve all employees records with EMP_ID, SALARY and maximum salary as MAX_SALARY in every row.
 
-   In solving this problem, I issued the following SQL statement, however, failed:
+In solving this problem, I issued the following SQL statement, however, failed:
 
-   SELECT f_name, l_name, emp_id, salary, MAX(salary) as MAX_SALARY
-   FROM employees 
+   	SELECT f_name, l_name, emp_id, salary, MAX(salary) as MAX_SALARY
+   	FROM employees 
 		
-   ![image](https://github.com/user-attachments/assets/5850187f-118d-411f-bf1f-9806352eba35)
+![image](https://github.com/user-attachments/assets/5850187f-118d-411f-bf1f-9806352eba35)
 
 4. Execute a Column Expression that retrieves all employees records with EMP_ID, SALARY and maximum salary as MAX_SALARY in every row.
 
-   The following SQL statement solved the problem:
+The following SQL statement solved the problem:
 
-   SELECT f_name, l_name, emp_id, salary, (SELECT MAX(salary) FROM employees) AS MAX_SALARY
-   FROM employees 
+   	SELECT f_name, l_name, emp_id, salary, (SELECT MAX(salary) FROM employees) AS MAX_SALARY
+   	FROM employees 
 
-   ![image](https://github.com/user-attachments/assets/6620e192-29f3-4128-b388-6e4a2bd1b8f0)
+![image](https://github.com/user-attachments/assets/6620e192-29f3-4128-b388-6e4a2bd1b8f0)
    
 5. Execute a Table Expression for the EMPLOYEES table that excludes columns with sensitive employee data (i.e. does not include columns: SSN, B_DATE, SEX, ADDRESS, SALARY).
 
-   In solving this problem, I created a new view and issued the following SQL statement in the query editor,
+In solving this problem, I created a new view and issued the following SQL statement in the query editor,
 
-   SELECT * FROM ( SELECT emp_id, f_name, l_name, dep_id FROM employees) AS New_employees_table;
+   	SELECT * FROM ( SELECT emp_id, f_name, l_name, dep_id FROM employees) AS New_employees_table;
 		
-   ![image](https://github.com/user-attachments/assets/b0ab366e-320f-433d-b0d6-62dcbda8dfda)
+![image](https://github.com/user-attachments/assets/b0ab366e-320f-433d-b0d6-62dcbda8dfda)
 
